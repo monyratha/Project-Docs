@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ឯកសាររចនាប្រព័ន្ធ (System Design Document - SDD)</title>
+    <style>
+        body {
+            font-family: 'Khmer OS Battambang', 'Noto Sans Khmer', sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3, h4 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #3498db;
+            margin-top: 20px;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        ol {
+            list-style-type: decimal;
+            margin-left: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .code-block {
+            background-color: #eef;
+            border: 1px solid #ddd;
+            padding: 10px;
+            overflow-x: auto;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>ឯកសាររចនាប្រព័ន្ធ (System Design Document - SDD)</h1>
+    <h2>ប្រព័ន្ធគ្រប់គ្រងឥណទាន និងគណនេយ្យ</h2>
+
+    <h3>១. សេចក្តីផ្តើម</h3>
+    <p>ឯកសារនេះរៀបរាប់ពីការរចនាស្ថាបត្យកម្ម និងការអនុវត្តបច្ចេកទេសនៃប្រព័ន្ធគ្រប់គ្រងឥណទាន និងគណនេយ្យសម្រាប់ [<strong>ឈ្មោះក្រុមហ៊ុនអតិថិជន</strong>]។ ឯកសារនេះបម្រើជាមគ្គុទ្ទេសក៍សម្រាប់ក្រុមអភិវឌ្ឍន៍ ដើម្បីធានាបាននូវភាពស៊ីសង្វាក់គ្នា និងប្រសិទ្ធភាពក្នុងការកសាងប្រព័ន្ធ។</p>
+
+    <h3>២. ស្ថាបត្យកម្មប្រព័ន្ធ (System Architecture)</h3>
+    <p>ប្រព័ន្ធនេះនឹងត្រូវបានកសាងឡើងដោយប្រើប្រាស់ស្ថាបត្យកម្ម [<strong>ឧទាហរណ៍៖ Client-Server, Microservices, N-tier</strong>]។ យើងនឹងប្រើប្រាស់ [<strong>ឧទាហរណ៍៖ N-tier Architecture</strong>] ដែលបែងចែកប្រព័ន្ធជាបីស្រទាប់សំខាន់ៗ:</p>
+    <ul>
+        <li><strong>ស្រទាប់បង្ហាញ (Presentation Layer / Frontend):</strong> ទទួលខុសត្រូវចំពោះចំណុចប្រទាក់អ្នកប្រើប្រាស់ (UI) និងបទពិសោធន៍អ្នកប្រើប្រាស់ (UX)។</li>
+        <li><strong>ស្រទាប់តក្កវិជ្ជាអាជីវកម្ម (Business Logic Layer / Backend):</strong> គ្រប់គ្រងដំណើរការទិន្នន័យ មុខងារអាជីវកម្ម និង API endpoints។</li>
+        <li><strong>ស្រទាប់ទិន្នន័យ (Data Layer):</strong> គ្រប់គ្រងការផ្ទុក និងការទាញយកទិន្នន័យពីមូលដ្ឋានទិន្នន័យ។</li>
+    </ul>
+    <p><em>(អាចបញ្ចូលដ្យាក្រាមស្ថាបត្យកម្មប្រព័ន្ធនៅទីនេះ ប្រសិនបើអាច)</em></p>
+
+    <h3>៣. បច្ចេកវិទ្យាដែលបានប្រើប្រាស់ (Technology Stack)</h3>
+    <ul>
+        <li><strong>Frontend:</strong> [<strong>ឧទាហរណ៍៖ ReactJS v18, HTML5, CSS3, JavaScript (ES6+)</strong>]</li>
+        <li><strong>Backend:</strong> [<strong>ឧទាហរណ៍៖ Python 3.9, Django 4.x, Django REST Framework</strong>]</li>
+        <li><strong>Database:</strong> [<strong>ឧទាហរណ៍៖ PostgreSQL 14</strong>]</li>
+        <li><strong>Server:</strong> [<strong>ឧទាហរណ៍៖ Nginx, Gunicorn</strong>]</li>
+        <li><strong>Deployment Platform:</strong> [<strong>ឧទាហរណ៍៖ AWS EC2, DigitalOcean Droplets</strong>]</li>
+        <li><strong>Version Control:</strong> [<strong>Git, GitHub</strong>]</li>
+    </ul>
+
+    <h3>៤. រចនាសម្ព័ន្ធមូលដ្ឋានទិន្នន័យ (Database Schema)</h3>
+    <p>ខាងក្រោមនេះគឺជាគំរូនៃតារាងមូលដ្ឋានទិន្នន័យសំខាន់ៗ និងទំនាក់ទំនងរបស់វា:</p>
+    <h4>៤.១. តារាង Users (សម្រាប់គ្រប់គ្រងអ្នកប្រើប្រាស់)</h4>
+    <table>
+        <thead>
+        <tr>
+            <th>Field Name</th>
+            <th>Data Type</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>id</td><td>INT (PK)</td><td>Primary Key</td></tr>
+        <tr><td>username</td><td>VARCHAR(50)</td><td>ឈ្មោះអ្នកប្រើប្រាស់</td></tr>
+        <tr><td>password_hash</td><td>VARCHAR(255)</td><td>ពាក្យសម្ងាត់ដែលបាន Hash</td></tr>
+        <tr><td>role</td><td>VARCHAR(20)</td><td>(Admin, Loan Officer, Accountant)</td></tr>
+        <tr><td>email</td><td>VARCHAR(100)</td><td>អ៊ីមែលអ្នកប្រើប្រាស់</td></tr>
+        <tr><td>created_at</td><td>DATETIME</td><td>កាលបរិច្ឆេទបង្កើត</td></tr>
+        </tbody>
+    </table>
+
+    <h4>៤.២. តារាង Clients (សម្រាប់គ្រប់គ្រងអតិថិជន)</h4>
+    <table>
+        <thead>
+        <tr>
+            <th>Field Name</th>
+            <th>Data Type</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>id</td><td>INT (PK)</td><td>Primary Key</td></tr>
+        <tr><td>full_name</td><td>VARCHAR(100)</td><td>ឈ្មោះពេញ</td></tr>
+        <tr><td>id_card_number</td><td>VARCHAR(20)</td><td>លេខអត្តសញ្ញាណប័ណ្ណ</td></tr>
+        <tr><td>address</td><td>TEXT</td><td>អាសយដ្ឋាន</td></tr>
+        <tr><td>phone_number</td><td>VARCHAR(20)</td><td>លេខទូរស័ព្ទ</td></tr>
+        <tr><td>date_of_birth</td><td>DATE</td><td>ថ្ងៃខែឆ្នាំកំណើត</td></tr>
+        <tr><td>created_at</td><td>DATETIME</td><td>កាលបរិច្ឆេទបង្កើត</td></tr>
+        </tbody>
+    </table>
+
+    <h4>៤.៣. តារាង Loans (សម្រាប់គ្រប់គ្រងកម្ចី)</h4>
+    <table>
+        <thead>
+        <tr>
+            <th>Field Name</th>
+            <th>Data Type</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>id</td><td>INT (PK)</td><td>Primary Key</td></tr>
+        <tr><td>client_id</td><td>INT (FK)</td><td>Foreign Key ទៅតារាង Clients</td></tr>
+        <tr><td>loan_amount</td><td>DECIMAL(18,2)</td><td>ចំនួនទឹកប្រាក់កម្ចី</td></tr>
+        <tr><td>interest_rate</td><td>DECIMAL(5,2)</td><td>អត្រាការប្រាក់ (%)</td></tr>
+        <tr><td>loan_term_months</td><td>INT</td><td>រយៈពេលកម្ចី (ខែ)</td></tr>
+        <tr><td>loan_type</td><td>VARCHAR(50)</td><td>(Personal, Business, etc.)</td></tr>
+        <tr><td>start_date</td><td>DATE</td><td>ថ្ងៃចាប់ផ្ដើម</td></tr>
+        <tr><td>status</td><td>VARCHAR(20)</td><td>(Active, Closed, Overdue, Approved, Pending)</td></tr>
+        <tr><td>approved_by_user_id</td><td>INT (FK)</td><td>អ្នកអនុម័ត</td></tr>
+        <tr><td>created_at</td><td>DATETIME</td><td>កាលបរិច្ឆេទបង្កើត</td></tr>
+        </tbody>
+    </table>
+
+    <h4>៤.៤. តារាង LoanInstallments (សម្រាប់គ្រប់គ្រងការរំលស់)</h4>
+    <table>
+        <thead>
+        <tr>
+            <th>Field Name</th>
+            <th>Data Type</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>id</td><td>INT (PK)</td><td>Primary Key</td></tr>
+        <tr><td>loan_id</td><td>INT (FK)</td><td>Foreign Key ទៅតារាង Loans</td></tr>
+        <tr><td>due_date</td><td>DATE</td><td>ថ្ងៃផុតកំណត់</td></tr>
+        <tr><td>principal_due</td><td>DECIMAL(18,2)</td><td>ប្រាក់ដើមត្រូវបង់</td></tr>
+        <tr><td>interest_due</td><td>DECIMAL(18,2)</td><td>ការប្រាក់ត្រូវបង់</td></tr>
+        <tr><td>total_due</td><td>DECIMAL(18,2)</td><td>សរុបត្រូវបង់</td></tr>
+        <tr><td>paid_amount</td><td>DECIMAL(18,2)</td><td>ចំនួនប្រាក់បានបង់</td></tr>
+        <tr><td>payment_date</td><td>DATE</td><td>ថ្ងៃបង់ប្រាក់ពិតប្រាកដ</td></tr>
+        <tr><td>status</td><td>VARCHAR(20)</td><td>(Paid, Unpaid, Overdue)</td></tr>
+        <tr><td>late_penalty</td><td>DECIMAL(18,2)</td><td>ប្រាក់ពិន័យយឺតយ៉ាវ</td></tr>
+        </tbody>
+    </table>
+
+    <h4>៤.៥. តារាង Transactions (សម្រាប់ប្រតិបត្តិការគណនេយ្យ)</h4>
+    <table>
+        <thead>
+        <tr>
+            <th>Field Name</th>
+            <th>Data Type</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>id</td><td>INT (PK)</td><td>Primary Key</td></tr>
+        <tr><td>transaction_date</td><td>DATETIME</td><td>ថ្ងៃប្រតិបត្តិការ</td></tr>
+        <tr><td>description</td><td>TEXT</td><td>ការពិពណ៌នា</td></tr>
+        <tr><td>amount</td><td>DECIMAL(18,2)</td><td>ចំនួនទឹកប្រាក់</td></tr>
+        <tr><td>transaction_type</td><td>VARCHAR(20)</td><td>(Income, Expense)</td></tr>
+        <tr><td>account_id</td><td>INT (FK)</td><td>គណនីគណនេយ្យ (Chart of Accounts)</td></tr>
+        <tr><td>recorded_by_user_id</td><td>INT (FK)</td><td>អ្នកកត់ត្រា</td></tr>
+        </tbody>
+    </table>
+
+    <h4>៤.៦. តារាង ChartOfAccounts (បញ្ជីគណនីគណនេយ្យ)</h4>
+    <table>
+        <thead>
+        <tr>
+            <th>Field Name</th>
+            <th>Data Type</th>
+            <th>Description</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr><td>id</td><td>INT (PK)</td><td>Primary Key</td></tr>
+        <tr><td>account_name</td><td>VARCHAR(100)</td><td>ឈ្មោះគណនី</td></tr>
+        <tr><td>account_code</td><td>VARCHAR(20)</td><td>លេខកូដគណនី</td></tr>
+        <tr><td>account_type</td><td>VARCHAR(50)</td><td>(Asset, Liability, Equity, Revenue, Expense)</td></tr>
+        </tbody>
+    </table>
+    <p><em>(នេះគ្រាន់តែជាគំរូប៉ុណ្ណោះ អ្នកអាចបន្ថែមតារាង និង Field ផ្សេងទៀតតាមតម្រូវការជាក់ស្ដែង)</em></p>
+
+    <h3>៥. API Endpoints (សម្រាប់ Backend)</h3>
+    <p>Backend នឹងផ្ដល់នូវ API endpoints សម្រាប់ Frontend ធ្វើការទាក់ទងជាមួយ។ ឧទាហរណ៍:</p>
+    <h4>៥.១. Authentication API</h4>
+    <div class="code-block">
+            <pre>
+                <code>
+POST /api/auth/login/
+POST /api/auth/logout/
+                </code>
+            </pre>
+    </div>
+
+    <h4>៥.២. Client API</h4>
+    <div class="code-block">
+            <pre>
+                <code>
+GET /api/clients/
+POST /api/clients/
+GET /api/clients/{id}/
+PUT /api/clients/{id}/
+DELETE /api/clients/{id}/
+                </code>
+            </pre>
+    </div>
+
+    <h4>៥.៣. Loan API</h4>
+    <div class="code-block">
+            <pre>
+                <code>
+GET /api/loans/
+POST /api/loans/
+GET /api/loans/{id}/
+PUT /api/loans/{id}/
+DELETE /api/loans/{id}/
+GET /api/loans/{id}/installments/ (ទទួលបានកាលវិភាគរំលស់)
+POST /api/loans/{id}/payments/ (បញ្ចូលការទូទាត់)
+                </code>
+            </pre>
+    </div>
+    <p><em>(បន្ថែម API Endpoints ផ្សេងៗទៀតសម្រាប់ Accounting, Users, Reports ។)</em></p>
+
+    <h3>៦. UI/UX Flow (សម្រាប់ Frontend)</h3>
+    <p>ការរចនាចំណុចប្រទាក់អ្នកប្រើប្រាស់ (UI) នឹងផ្ដោតលើភាពងាយស្រួលប្រើប្រាស់ និងសោភ័ណភាព។ មុខងារសំខាន់ៗនឹងមាន Flow ដូចខាងក្រោម:</p>
+    <ul>
+        <li><strong>Login Page:</strong> អ្នកប្រើប្រាស់បញ្ចូល username និង password។</li>
+        <li><strong>Dashboard:</strong> ទំព័រដើមដែលបង្ហាញទិដ្ឋភាពទូទៅ (ឧទាហរណ៍៖ ចំនួនកម្ចីសកម្ម, ចំនួនកម្ចីយឺត, ប្រាក់ចំណូលប្រចាំខែ)។</li>
+        <li><strong>Client Management:</strong> ទំព័រសម្រាប់បន្ថែម/កែប្រែ/មើលអតិថិជន។</li>
+        <li><strong>Loan Application/Management:</strong> ទំព័រសម្រាប់ស្នើសុំ/គ្រប់គ្រងកម្ចី។</li>
+        <li><strong>Payment Collection:</strong> ទំព័រសម្រាប់កត់ត្រាការទូទាត់។</li>
+        <li><strong>Accounting Entries:</strong> ទំព័រសម្រាប់កត់ត្រាចំណូល/ចំណាយ។</li>
+        <li><strong>Reporting Section:</strong> ទំព័រសម្រាប់បង្កើត និងមើលរបាយការណ៍។</li>
+    </ul>
+    <p><em>(អាចបញ្ចូល Wireframes ឬ Mockups នៅទីនេះ ប្រសិនបើមាន)</em></p>
+
+    <h3>៧. សន្តិសុខ (Security Considerations)</h3>
+    <ul>
+        <li><strong>Authentication & Authorization:</strong> ប្រើ JWT (JSON Web Tokens) សម្រាប់ API authentication និង Role-Based Access Control (RBAC)។</li>
+        <li><strong>Data Encryption:</strong> ពាក្យសម្ងាត់អ្នកប្រើប្រាស់នឹងត្រូវបាន Hash មុនពេលរក្សាទុកក្នុង Database។</li>
+        <li><strong>Input Validation:</strong> ធ្វើការត្រួតពិនិត្យទិន្នន័យបញ្ចូលដើម្បីការពារ SQL Injection, XSS ។</li>
+        <li><strong>API Rate Limiting:</strong> ដើម្បីការពារការវាយប្រហារ Brute-force។</li>
+    </ul>
+
+    <h3>៨. ការដាក់ឱ្យដំណើរការ (Deployment Strategy)</h3>
+    <p>ប្រព័ន្ធនឹងត្រូវបានដាក់ឱ្យដំណើរការនៅលើ [<strong>ឧទាហរណ៍៖ Cloud Server ដូចជា AWS EC2</strong>] ។</p>
+    <ul>
+        <li><strong>Development Environment:</strong> សម្រាប់ក្រុមអភិវឌ្ឍន៍។</li>
+        <li><strong>Staging/UAT Environment:</strong> សម្រាប់អតិថិជនធ្វើតេស្ត។</li>
+        <li><strong>Production Environment:</strong> បរិយាកាសសម្រាប់ប្រើប្រាស់ផ្ទាល់។</li>
+    </ul>
+    <p>ការបម្រុងទុកទិន្នន័យ (Database Backup) នឹងត្រូវបានកំណត់រចនាសម្ព័ន្ធឱ្យដំណើរការជាប្រចាំ។</p>
+
+    <h3>៩. សេចក្តីសន្និដ្ឋាន</h3>
+    <p>ឯកសាររចនាប្រព័ន្ធនេះ ផ្ដល់នូវផែនទីចង្អុលផ្លូវបច្ចេកទេសសម្រាប់ការអភិវឌ្ឍន៍ប្រព័ន្ធគ្រប់គ្រងឥណទាន និងគណនេយ្យ។ ការធ្វើតាមការរចនានេះ នឹងធានាបាននូវភាពរឹងមាំ គុណភាព និងប្រសិទ្ធភាពនៃប្រព័ន្ធ។</p>
+</div>
+</body>
+</html>

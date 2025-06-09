@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ឯកសារវាយតម្លៃគុណភាព (Quality Assurance / Test Plan)</title>
+    <style>
+        body {
+            font-family: 'Khmer OS Battambang', 'Noto Sans Khmer', sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2, h3 {
+            color: #2c3e50;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        h2 {
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            margin-top: 30px;
+        }
+        h3 {
+            color: #3498db;
+            margin-top: 20px;
+        }
+        ul {
+            list-style-type: disc;
+            margin-left: 20px;
+        }
+        ol {
+            list-style-type: decimal;
+            margin-left: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>ផែនការធានាគុណភាព និងការធ្វើតេស្ត (Quality Assurance / Test Plan)</h1>
+    <h2>ប្រព័ន្ធគ្រប់គ្រងឥណទាន និងគណនេយ្យ</h2>
+
+    <h3>១. សេចក្តីផ្តើម</h3>
+    <p>ឯកសារនេះរៀបរាប់ពីយុទ្ធសាស្ត្រ និងវិធីសាស្រ្តដែលនឹងត្រូវប្រើប្រាស់ដើម្បីធានាគុណភាពនៃប្រព័ន្ធគ្រប់គ្រងឥណទាន និងគណនេយ្យ។ គោលបំណងគឺដើម្បីកំណត់អត្តសញ្ញាណ កត់ត្រា និងដោះស្រាយកំហុសឆ្គង (Bugs) មុនពេលប្រព័ន្ធត្រូវបានដាក់ឱ្យដំណើរការ។</p>
+
+    <h3>២. គោលបំណងនៃការធ្វើតេស្ត</h3>
+    <ul>
+        <li>ធានាថាមុខងារទាំងអស់ដំណើរការត្រឹមត្រូវតាមតម្រូវការដែលបានកំណត់។</li>
+        <li>ធានាថាប្រព័ន្ធមានស្ថិរភាព និងប្រសិទ្ធភាពក្នុងការឆ្លើយតប។</li>
+        <li>កំណត់អត្តសញ្ញាណ និងកាត់បន្ថយកំហុសឆ្គង។</li>
+        <li>ធានាថាប្រព័ន្ធមានសុវត្ថិភាពពីការគំរាមកំហែងទូទៅ។</li>
+        <li>ផ្ដល់ទំនុកចិត្តដល់អតិថិជនអំពីគុណភាពនៃផលិតផល។</li>
+    </ul>
+
+    <h3>៣. ប្រភេទនៃការធ្វើតេស្ត (Types of Testing)</h3>
+    <ul>
+        <li>
+            <h4>៣.១. Unit Testing</h4>
+            <p>ធ្វើតេស្តលើផ្នែកតូចៗនីមួយៗនៃកូដ (ឧទាហរណ៍៖ Functions, Methods) ដើម្បីធានាថាពួកវាដំណើរការត្រឹមត្រូវដោយឯករាជ្យ។</p>
+        </li>
+        <li>
+            <h4>៣.២. Integration Testing</h4>
+            <p>ធ្វើតេស្តលើការភ្ជាប់គ្នារវាងម៉ូឌុលផ្សេងៗនៃប្រព័ន្ធ (ឧទាហរណ៍៖ Backend API ជាមួយ Database, Frontend ជាមួយ Backend API) ដើម្បីធានាថាពួកវាធ្វើការជាមួយគ្នាបានល្អ។</p>
+        </li>
+        <li>
+            <h4>៣.៣. Functional Testing</h4>
+            <p>ធ្វើតេស្តថាតើមុខងារនីមួយៗរបស់ប្រព័ន្ធ (ឧទាហរណ៍៖ ការបង្កើតកម្ចីថ្មី ការកត់ត្រាការទូទាត់) ដំណើរការបានត្រឹមត្រូវតាមតម្រូវការរបស់អតិថិជន។</p>
+        </li>
+        <li>
+            <h4>៣.៤. Usability Testing</h4>
+            <p>វាយតម្លៃភាពងាយស្រួលប្រើប្រាស់នៃចំណុចប្រទាក់អ្នកប្រើប្រាស់ (UI/UX) របស់ប្រព័ន្ធ។</p>
+        </li>
+        <li>
+            <h4>៣.៥. Performance Testing</h4>
+            <p>វាយតម្លៃល្បឿន និងភាពឆ្លើយតបរបស់ប្រព័ន្ធនៅក្រោមបន្ទុកការងារផ្សេងៗ (ឧទាហរណ៍៖ ការបញ្ចូលទិន្នន័យច្រើន ការចូលប្រើប្រាស់ដំណាលគ្នា)។</p>
+        </li>
+        <li>
+            <h4>៣.៦. Security Testing</h4>
+            <p>ធ្វើតេស្តដើម្បីកំណត់អត្តសញ្ញាណភាពងាយរងគ្រោះផ្នែកសុវត្ថិភាព (ឧទាហរណ៍៖ SQL Injection, Cross-Site Scripting, Unauthorized Access)។</p>
+        </li>
+        <li>
+            <h4>៣.៧. User Acceptance Testing (UAT)</h4>
+            <p>អតិថិជននឹងធ្វើតេស្តប្រព័ន្ធដោយខ្លួនឯងដើម្បីធានាថាវាបំពេញតាមតម្រូវការអាជីវកម្មរបស់ពួកគេ។</p>
+        </li>
+    </ul>
+
+    <h3>៤. ដំណើរការធ្វើតេស្ត (Testing Process)</h3>
+    <ol>
+        <li>
+            <h4>៤.១. ការរៀបចំ Test Cases</h4>
+            <p>បង្កើត Test Cases លម្អិតសម្រាប់មុខងារនីមួយៗ។ Test Case នីមួយៗនឹងរួមបញ្ចូល:</p>
+            <ul>
+                <li>លេខរៀង Test Case</li>
+                <li>ការពិពណ៌នា</li>
+                <li>ជំហានក្នុងការធ្វើតេស្ត</li>
+                <li>លទ្ធផលរំពឹងទុក</li>
+                <li>លទ្ធផលជាក់ស្តែង (ពេលធ្វើតេស្ត)</li>
+                <li>ស្ថានភាព (Pass/Fail)</li>
+                <li>កំណត់ចំណាំ/លេខ Bug ID</li>
+            </ul>
+        </li>
+        <li>
+            <h4>៤.២. ការអនុវត្តការធ្វើតេស្ត (Test Execution)</h4>
+            <p>អនុវត្ត Test Cases ទាំងអស់នៅលើបរិយាកាសតេស្ត (Staging Environment)។</p>
+        </li>
+        <li>
+            <h4>៤.៣. ការកត់ត្រា Bug (Bug Reporting)</h4>
+            <p>រាល់ Bug ដែលរកឃើញនឹងត្រូវបានកត់ត្រាក្នុងប្រព័ន្ធគ្រប់គ្រង Bug (ឧទាហរណ៍៖ Jira, Trello, ឬ Spreadsheet) រួមមាន៖ ការពិពណ៌នា លេខជំហានដើម្បីបង្កើត Bug ឡើងវិញ រូបភាព/វីដេអូ និងកម្រិតធ្ងន់ធ្ងរ។</p>
+        </li>
+        <li>
+            <h4>៤.៤. ការដោះស្រាយ Bug និងការធ្វើតេស្តឡើងវិញ (Bug Resolution & Retesting)</h4>
+            <p>អ្នកអភិវឌ្ឍន៍នឹងកែសម្រួល Bug ហើយក្រុម QA នឹងធ្វើតេស្តឡើងវិញដើម្បីធានាថា Bug ត្រូវបានដោះស្រាយ និងមិនមាន Bug ថ្មីកើតឡើង។</p>
+        </li>
+    </ol>
+
+    <h3>៥. បរិយាកាសធ្វើតេស្ត (Test Environment)</h3>
+    <p>ការធ្វើតេស្តនឹងត្រូវបានអនុវត្តនៅលើបរិយាកាសដូចទៅនឹងបរិយាកាស Production តាមដែលអាចធ្វើទៅបាន ដើម្បីធានាភាពស៊ីសង្វាក់គ្នា។</p>
+    <ul>
+        <li><strong>Operating System:</strong> [<strong>ឧទាហរណ៍៖ Windows Server 2022, Ubuntu 22.04 LTS</strong>]</li>
+        <li><strong>Web Browser:</strong> [<strong>ឧទាហរណ៍៖ Chrome (កំណែចុងក្រោយ), Firefox (កំណែចុងក្រោយ), Edge (កំណែចុងក្រោយ)</strong>]</li>
+        <li><strong>Database:</strong> [<strong>ឧទាហរណ៍៖ PostgreSQL 14</strong>]</li>
+        <li><strong>Network Configuration:</strong> ត្រូវតែមានល្បឿនអ៊ីនធឺណិតគ្រប់គ្រាន់។</li>
+    </ul>
+
+    <h3>៦. ការទទួលខុសត្រូវ (Responsibilities)</h3>
+    <ul>
+        <li><strong>អ្នកអភិវឌ្ឍន៍:</strong> ទទួលខុសត្រូវលើ Unit Testing និងការដោះស្រាយ Bug ។</li>
+        <li><strong>អ្នក/ក្រុម QA:</strong> ទទួលខុសត្រូវលើការរៀបចំ Test Plan, ការអនុវត្ត Integration/Functional/Performance/Security Testing និងការកត់ត្រា Bug ។</li>
+        <li><strong>អតិថិជន:</strong> ទទួលខុសត្រូវលើ User Acceptance Testing (UAT)។</li>
+    </ul>
+
+    <h3>៧. សេចក្តីសន្និដ្ឋាន</h3>
+    <p>ផែនការធានាគុណភាពនេះ នឹងជួយធានាថាប្រព័ន្ធគ្រប់គ្រងឥណទាន និងគណនេយ្យដែលបានអភិវឌ្ឍន៍ នឹងមានគុណភាពខ្ពស់ អាចទុកចិត្តបាន និងបំពេញតាមតម្រូវការរបស់ [<strong>ឈ្មោះក្រុមហ៊ុនអតិថិជន</strong>]។</p>
+</div>
+</body>
+</html>
