@@ -37,7 +37,7 @@ Repository នេះ​មាន​ផ្ទុក​នូវ​រាល់​
 * **[Guides/](/Project-Docs/Guides/)**: មាន​ផ្ទុក​នូវ​មគ្គុទ្ទេសក៍ (guides) និង​ឯកសារ​ណែនាំ​អំពី​ដំណើរការ (process documentation)។
   * **[`how_to_get_project_guide.html`](/Project-Docs/Guides/how_to_get_project_guide.html)**: **ការណែនាំ៖ ដំណើរការ​ទទួល​បាន​គម្រោង​អភិវឌ្ឍន៍​ប្រព័ន្ធ** ដែល​ផ្ដល់​ការ​ណែនាំ​ជា​ជំហានៗ​សម្រាប់​អ្នក​ឯករាជ្យ (freelancer) ក្នុង​ការ​ស្វែងរក​ និង​គ្រប់គ្រង​គម្រោង។
 * **[Design/](/Project-Docs/Design/)**: រួមបញ្ចូល​ **ឯកសារ​រចនា​ប្រព័ន្ធ (System Design Document - SDD)** ដែល​រៀបរាប់​លម្អិត​អំពី​ការ​រចនា​ស្ថាបត្យកម្ម (architectural design) គ្រោង​មូលដ្ឋាន​ទិន្នន័យ (database schema) និង​លក្ខណៈ​បច្ចេកទេស (technical specifications) នៃ​ប្រព័ន្ធ។
-  * **[`system_design_document.html`](/Project-Docs/Design/system_design_document.html)**
+  * **[`system_design_document_SDD.html`](/Project-Docs/Design/system_design_document_SDD.html)**
 * **[Development/](/Project-Docs/Development/)**: មាន​ឯកសារ​ទាក់ទង​នឹង​ដំណើរការ​អភិវឌ្ឍន៍ (development process)៖
   * **[progress_reports/](/Project-Docs/Development/progress_reports/)**: **របាយការណ៍​វឌ្ឍនភាព (Progress Reports)** ប្រចាំ​សប្តាហ៍​ និង​ប្រចាំ​ខែ​ ដើម្បី​ជូន​ដំណឹង​ដល់​អតិថិជន​អំពី​ដំណើរការ​ និង​សមិទ្ធផល​គម្រោង (project milestones and achievements)។
     * **[`weekly_report_YYYY_MM_DD.html`](/Project-Docs/Development/progress_reports/weekly_report_YYYY_MM_DD.html)**
